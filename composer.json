@@ -1,0 +1,10 @@
+{
+    "name": "hexlet/code",
+    "bin": ["bin/brain-games"],
+    "description": "start brain-games, its hexlet project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "license": "proprietary"
+}
+
