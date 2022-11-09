@@ -7,5 +7,8 @@ brain-games: #start rain-games
 validate: #composer validate
 	composer validate
 
+lint: #run linter check
+	composer exec --verbose phpcs -- --standard=PSR12 src bin
+
 
 

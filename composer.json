@@ -3,8 +3,16 @@
     "bin": ["bin/brain-games"],
     "description": "start brain-games, its hexlet project",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "wp-cli/php-cli-tools": "0.11.16"
     },
-    "license": "proprietary"
+    "license": "proprietary",
+
+    "autoload": {
+        "files": ["src/Cli.php"]
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    }
 }
 
