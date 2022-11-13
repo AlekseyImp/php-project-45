@@ -2,15 +2,13 @@
 
 namespace BrainGames\Cli;
 
-function line($string, $name = '')
+function line($string, $userName = '')
 {
-    echo $string;
-    echo $name;
-    echo "\n";
+    echo "{$string}{$userName}\n";
 }
 function prompt($string)
 {
     echo "$string ";
-    $name = trim(fgets(STDIN));
-    return $name;
+    $userName = trim(fgets(STDIN));
+    return $userName;
 }
