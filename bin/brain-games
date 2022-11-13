@@ -11,5 +11,5 @@ use function BrainGames\Cli\line;
 use function BrainGames\Cli\prompt;
 
 line('Welcome to the Brain Game!');
-$name = prompt('May I have your name?');
-line("Hello, ", $name);
+$userName = prompt('May I have your name?');
+line("Hello, ", $userName);
