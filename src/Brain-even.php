@@ -19,7 +19,7 @@ function brainEven()
     for ($i = 0; $i < 3; $i++) {
         $num = rand(1, 50);
         line("Question: {$num}");
-        line("Your answer: ");
+        line("Your answer: ", false);
         $answer = trim(fgets(STDIN));
         if ($num % 2 === 0) {
             if ($answer === 'yes') {
