@@ -26,7 +26,7 @@ function brainCalc()
             $corrAnswer = $a + $b;
             line("What is the result of the expression?");
             line("Question: {$a} + {$b}");
-            line("Your answer: ");
+            line("Your answer: ", false);
             $userAnswer = trim(fgets(STDIN));
             if ($corrAnswer == $userAnswer) {
                 line("Correct!");
@@ -40,7 +40,7 @@ function brainCalc()
             $corrAnswer = $a - $b;
             line("What is the result of the expression?");
             line("Question: {$a} - {$b}");
-            line("Your answer: ");
+            line("Your answer: ", false);
             $userAnswer = trim(fgets(STDIN));
             if ($corrAnswer == $userAnswer) {
                 line("Correct!");
@@ -54,7 +54,7 @@ function brainCalc()
             $corrAnswer = $a * $b;
             line("What is the result of the expression?");
             line("Question: {$a} * {$b}");
-            line("Your answer: ");
+            line("Your answer: ", false);
             $userAnswer = trim(fgets(STDIN));
             if ($corrAnswer == $userAnswer) {
                 line("Correct!");
