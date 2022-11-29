@@ -2,9 +2,13 @@
 
 namespace BrainGames\Cli;
 
-function line($string)
+function line($string, $transfer = true)
 {
-    echo "{$string}\n";
+    if ($transfer === true) {
+        echo "{$string}\n";
+    } else {
+        echo "{$string}";
+    }
 }
 function prompt($string)
 {
@@ -19,4 +23,12 @@ function greetings()
     $userName = trim(fgets(STDIN));
     line("Hello, {$userName}");
     return $userName;
+}
+function gcd($a, $b)
+{
+    if ($b === 0) {
+        return $a;
+    } else {
+        return gcd($b, $a % $b);
+    }
 }
