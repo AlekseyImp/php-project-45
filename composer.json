@@ -3,7 +3,8 @@
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd"
     ],
     "description": "start brain-games, its hexlet project",
     "require": {
@@ -16,7 +17,8 @@
         "files": [
             "src/Cli.php",
             "src/Brain-even.php",
-            "src/Brain-calc.php"
+            "src/Brain-calc.php",
+            "src/Brain-gcd.php"
     ]
     },
     "require-dev": {
