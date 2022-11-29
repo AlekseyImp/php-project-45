@@ -13,5 +13,8 @@ lint: #run linter check
 brain-even: #run brain-even game
 	./bin/brain-even
 
+brain-calc: #run brain-calc game
+	./bin/brain-calc
+
 
 
