@@ -16,5 +16,9 @@ brain-even: #run brain-even game
 brain-calc: #run brain-calc game
 	./bin/brain-calc
 
+brain-gcd: #run barin-gcd game
+	./bin/brain-gcd
+
+
 
 
