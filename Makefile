@@ -22,6 +22,9 @@ brain-gcd: #run barin-gcd game
 brain-progression: #run brain-progression game
 	./bin/brain-progression
 
+brain-prime: #run brain-prime game
+	./bin/brain-prime
+
 
 
 
