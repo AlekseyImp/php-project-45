@@ -5,7 +5,8 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
-        "bin/brain-progression"
+        "bin/brain-progression",
+        "bin/brain-prime"
     ],
     "description": "start brain-games, its hexlet project",
     "require": {
@@ -20,7 +21,8 @@
             "src/Brain-even.php",
             "src/Brain-calc.php",
             "src/Brain-gcd.php",
-            "src/Brain-progression.php"
+            "src/Brain-progression.php",
+            "src/Brain-prime.php"
     ]
     },
     "require-dev": {
