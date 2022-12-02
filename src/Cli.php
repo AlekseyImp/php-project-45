@@ -19,7 +19,7 @@ function prompt($string)
 function greetings()
 {
     line("Welcome to the Brain Game!");
-    line("May I have your name? ");
+    line("May I have your name? ", false);
     $userName = trim(fgets(STDIN));
     line("Hello, {$userName}");
     return $userName;
