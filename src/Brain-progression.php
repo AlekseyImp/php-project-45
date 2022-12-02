@@ -49,4 +49,3 @@ function brainProgression()
         line("Congratulations, {$userName}!");
     }
 }
-brainProgression();
