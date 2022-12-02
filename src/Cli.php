@@ -32,3 +32,18 @@ function gcd($a, $b)
         return gcd($b, $a % $b);
     }
 }
+function isPrime($num)
+{
+    $end = round(sqrt($num));
+    $count = 0;
+    for ($i = 2; $i <= $end; $i++) {
+        if ($num % $i === 0) {
+            $count++;
+        }
+    }
+    if ($count === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
