@@ -19,6 +19,9 @@ brain-calc: #run brain-calc game
 brain-gcd: #run barin-gcd game
 	./bin/brain-gcd
 
+brain-progression: #run brain-progression game
+	./bin/brain-progression
+
 
 
 
