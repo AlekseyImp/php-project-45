@@ -7,9 +7,6 @@ if (file_exists($autoloadPath1)) {
 } else {
     require_once $autoloadPath2;
 }
-use function BrainGames\Cli\line;
-use function BrainGames\Cli\prompt;
+use function BrainGames\Cli\greetings;
 
-line('Welcome to the Brain Game!');
-$userName = prompt('May I have your name?');
-line("Hello, ", $userName);
+greetings();
