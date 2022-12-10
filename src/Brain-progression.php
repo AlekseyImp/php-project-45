@@ -22,6 +22,7 @@ function brainProgression()
             $progression[$j] = $progression[$j - 1] + $increase;
         }
         $correctAnswer = $progression[$hidenNum];
+        $correctAnswer = strval($correctAnswer);
         $progression[$hidenNum] = '..';
         printProgression($progression);
         $progression = [];

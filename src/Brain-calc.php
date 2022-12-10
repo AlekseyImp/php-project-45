@@ -29,6 +29,7 @@ function makeQuestion(int $operand, int $a, int $b, string $userName)
     switch ($operand) {
         case 1:
             $correctAnswer = $a + $b;
+            $correctAnswer = strval($correctAnswer);
             line("Question: {$a} + {$b}");
             line("Your answer: ", false);
             $userAnswer = getSTDIN();
@@ -36,6 +37,7 @@ function makeQuestion(int $operand, int $a, int $b, string $userName)
             break;
         case 2:
             $correctAnswer = $a - $b;
+            $correctAnswer = strval($correctAnswer);
             line("Question: {$a} - {$b}");
             line("Your answer: ", false);
             $userAnswer = getSTDIN();
@@ -43,6 +45,7 @@ function makeQuestion(int $operand, int $a, int $b, string $userName)
             break;
         case 3:
             $correctAnswer = $a * $b;
+            $correctAnswer = strval($correctAnswer);
             line("Question: {$a} * {$b}");
             line("Your answer: ", false);
             $userAnswer = getSTDIN();

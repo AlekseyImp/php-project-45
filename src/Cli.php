@@ -51,7 +51,7 @@ function isCorrectAnswer(string $userAnswer, string $correctAnswer, string $user
         exit();
     }
 }
-function getSTDIN()
+function getSTDIN(): string
 {
     $userName = fgets(STDIN);
     if (is_string(($userName))) {
