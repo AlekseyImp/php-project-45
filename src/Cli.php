@@ -53,8 +53,7 @@ function isCorrectAnswer(string $userAnswer, string $correctAnswer, string $user
 }
 function getSTDIN(): string
 {
-    $userName = fgets(STDIN);
-    if (is_string(($userName))) {
-        return trim($userName);
-    }
+    $string = fgets(STDIN);
+    $string = strval($string);
+    return trim($string);
 }
