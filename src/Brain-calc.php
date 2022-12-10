@@ -5,6 +5,7 @@ namespace BrainGames\Brain\calc;
 use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
+use function BrainGames\Cli\getSTDIN;
 
 function brainCalc()
 {
@@ -23,28 +24,28 @@ function brainCalc()
     }
 }
 
-function makeQuestion($operand, $a, $b, $userName)
+function makeQuestion(int $operand, int $a, int $b, string $userName)
 {
     switch ($operand) {
         case 1:
             $correctAnswer = $a + $b;
             line("Question: {$a} + {$b}");
             line("Your answer: ", false);
-            $userAnswer = trim(fgets(STDIN));
+            $userAnswer = getSTDIN();
             isCorrectAnswer($userAnswer, $correctAnswer, $userName);
             break;
         case 2:
             $correctAnswer = $a - $b;
             line("Question: {$a} - {$b}");
             line("Your answer: ", false);
-            $userAnswer = trim(fgets(STDIN));
+            $userAnswer = getSTDIN();
             isCorrectAnswer($userAnswer, $correctAnswer, $userName);
             break;
         case 3:
             $correctAnswer = $a * $b;
             line("Question: {$a} * {$b}");
             line("Your answer: ", false);
-            $userAnswer = trim(fgets(STDIN));
+            $userAnswer = getSTDIN();
             isCorrectAnswer($userAnswer, $correctAnswer, $userName);
             break;
     }
