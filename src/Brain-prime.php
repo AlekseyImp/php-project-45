@@ -11,7 +11,7 @@ function brainPrime()
 {
     $userName = greetings();
     $count = 0;
-    line("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
     for ($i = 0; $i < 3; $i++) {
         $primeNum = rand(2, 103);
         line("Question: {$primeNum}");
