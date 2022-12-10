@@ -5,6 +5,7 @@ namespace BrainGames\Brain\even;
 use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
+use function BrainGames\Cli\getSTDIN;
 
 function brainEven()
 {
@@ -16,7 +17,7 @@ function brainEven()
         line("Question: {$num}");
         line("Your answer: ", false);
         $correctAnswer = getCorrectAnswer($num);
-        $userAnswer = trim(fgets(STDIN));
+        $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
         $count++;
     }
@@ -24,7 +25,7 @@ function brainEven()
         line("Congratulations, {$userName}!");
     }
 }
-function getCorrectAnswer($num)
+function getCorrectAnswer(int $num)
 {
     if ($num % 2 === 0) {
         return 'yes';
