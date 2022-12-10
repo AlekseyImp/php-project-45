@@ -10,12 +10,6 @@ function line($string, $transfer = true)
         echo "{$string}";
     }
 }
-function prompt($string)
-{
-    echo "$string ";
-    $userName = trim(fgets(STDIN));
-    return $userName;
-}
 function greetings()
 {
     line("Welcome to the Brain Games!");
@@ -42,8 +36,18 @@ function isPrime($num)
         }
     }
     if ($count === 0) {
-        return true;
+        return 'yes';
     } else {
-        return false;
+        return 'no';
+    }
+}
+function isCorrectAnswer($userAnswer, $correctAnswer, $userName)
+{
+    if ($userAnswer == $correctAnswer) {
+        line("Correct!");
+    } else {
+        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
+        line("Let`s try again, {$userName}!");
+        exit();
     }
 }
