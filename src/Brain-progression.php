@@ -5,6 +5,8 @@ namespace BrainGames\Brain\progression;
 use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
+use function BrainGames\Cli\getSTDIN;
+
 
 function brainProgression()
 {
@@ -14,6 +16,7 @@ function brainProgression()
     for ($i = 0; $i < 3; $i++) {
         $size = rand(5, 10);
         $increase  = rand(2, 10);
+        $progression = [];
         $progression[0] = $increase;
         $hidenNum = rand(0, $size - 1);
         for ($j = 1; $j < $size; $j++) {
@@ -25,7 +28,7 @@ function brainProgression()
         $progression = [];
         line("");
         line("Your answer: ", false);
-        $userAnswer = trim(fgets(STDIN));
+        $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
         $count++;
     }
@@ -33,7 +36,7 @@ function brainProgression()
         line("Congratulations, {$userName}!");
     }
 }
-function printProgression($progression)
+function printProgression(array $progression)
 {
     line("Question: ", false);
     foreach ($progression as $item) {
