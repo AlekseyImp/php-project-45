@@ -47,7 +47,7 @@ function isCorrectAnswer($userAnswer, $correctAnswer, $userName)
         line("Correct!");
     } else {
         line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
-        line("Let`s try again, {$userName}!");
+        line("Let's try again, {$userName}!");
         exit();
     }
 }
