@@ -6,6 +6,7 @@ use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\gcd;
 use function BrainGames\Cli\isCorrectAnswer;
+use function BrainGames\Cli\getSTDIN;
 
 function brainGcd()
 {
@@ -18,7 +19,7 @@ function brainGcd()
         $correctAnswer = gcd($a, $b);
         line("Question: {$a} {$b}");
         line("Your answer: ", false);
-        $userAnswer = trim(fgets(STDIN));
+        $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
         $count++;
     }
