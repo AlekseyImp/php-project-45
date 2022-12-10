@@ -6,6 +6,8 @@ use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isPrime;
 use function BrainGames\Cli\isCorrectAnswer;
+use function BrainGames\Cli\getSTDIN;
+
 
 function brainPrime()
 {
@@ -17,7 +19,7 @@ function brainPrime()
         line("Question: {$primeNum}");
         line("Your answer: ", false);
         $correctAnswer = isPrime($primeNum);
-        $userAnswer = trim(fgets(STDIN));
+        $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
         $count++;
     }
