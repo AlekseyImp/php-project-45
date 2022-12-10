@@ -22,7 +22,8 @@
             "src/Brain-calc.php",
             "src/Brain-gcd.php",
             "src/Brain-progression.php",
-            "src/Brain-prime.php"
+            "src/Brain-prime.php",
+            "src/Brain-games.php"
     ]
     },
     "require-dev": {
