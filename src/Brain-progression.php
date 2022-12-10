@@ -7,7 +7,6 @@ use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
 
-
 function brainProgression()
 {
     $userName = greetings();

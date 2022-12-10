@@ -8,7 +8,6 @@ use function BrainGames\Cli\isPrime;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
 
-
 function brainPrime()
 {
     $userName = greetings();
