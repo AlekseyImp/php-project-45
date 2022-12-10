@@ -23,6 +23,6 @@ function brainGcd()
         $count++;
     }
     if ($count === 3) {
-        line("Congratulations, {$userName}");
+        line("Congratulations, {$userName}!");
     }
 }
