@@ -2,7 +2,7 @@
 
 namespace BrainGames\Cli;
 
-function line($string, $transfer = true)
+function line(string $string, bool $transfer = true)
 {
     if ($transfer === true) {
         echo "{$string}\n";
@@ -14,11 +14,11 @@ function greetings()
 {
     line("Welcome to the Brain Games!");
     line("May I have your name? ", false);
-    $userName = trim(fgets(STDIN));
+    $userName = getSTDIN();
     line("Hello, {$userName}");
     return $userName;
 }
-function gcd($a, $b)
+function gcd(int $a, int $b)
 {
     if ($b === 0) {
         return $a;
@@ -26,7 +26,7 @@ function gcd($a, $b)
         return gcd($b, $a % $b);
     }
 }
-function isPrime($num)
+function isPrime(int $num)
 {
     $end = round(sqrt($num));
     $count = 0;
@@ -41,7 +41,7 @@ function isPrime($num)
         return 'no';
     }
 }
-function isCorrectAnswer($userAnswer, $correctAnswer, $userName)
+function isCorrectAnswer(string $userAnswer, string $correctAnswer, string $userName)
 {
     if ($userAnswer == $correctAnswer) {
         line("Correct!");
@@ -49,5 +49,12 @@ function isCorrectAnswer($userAnswer, $correctAnswer, $userName)
         line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
         line("Let's try again, {$userName}!");
         exit();
+    }
+}
+function getSTDIN()
+{
+    $userName = fgets(STDIN);
+    if (is_string(($userName))) {
+        return trim($userName);
     }
 }
