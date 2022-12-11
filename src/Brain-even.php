@@ -6,12 +6,12 @@ use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
+use function BrainGames\Cli\showTask;
 
 function brainEven()
 {
     $userName = greetings();
-    $count = 0;
-    line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
+    showTask('even');
     for ($i = 0; $i < 3; $i++) {
         $num = rand(1, 50);
         line("Question: {$num}");
@@ -19,11 +19,8 @@ function brainEven()
         $correctAnswer = getCorrectAnswer($num);
         $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
-        $count++;
     }
-    if ($count === 3) {
-        line("Congratulations, {$userName}!");
-    }
+    line("Congratulations, {$userName}!");
 }
 function getCorrectAnswer(int $num)
 {

@@ -7,12 +7,12 @@ use function BrainGames\Cli\line;
 use function BrainGames\Cli\gcd;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
+use function BrainGames\Cli\showTask;
 
 function brainGcd()
 {
     $userName = greetings();
-    $count = 0;
-    line("Find the greatest common divisor of given numbers.");
+    showTask('gcd');
     for ($i = 0; $i < 3; $i++) {
         $a = rand(1, 100);
         $b = rand(1, 50);
@@ -21,9 +21,6 @@ function brainGcd()
         line("Your answer: ", false);
         $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
-        $count++;
     }
-    if ($count === 3) {
-        line("Congratulations, {$userName}!");
-    }
+    line("Congratulations, {$userName}!");
 }

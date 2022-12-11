@@ -6,12 +6,12 @@ use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
+use function BrainGames\Cli\showTask;
 
 function brainProgression()
 {
     $userName = greetings();
-    $count = 0;
-    line("What number is missing in the progression?");
+    showTask('progression');
     for ($i = 0; $i < 3; $i++) {
         $size = rand(5, 10);
         $increase  = rand(2, 10);
@@ -30,11 +30,8 @@ function brainProgression()
         line("Your answer: ", false);
         $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
-        $count++;
     }
-    if ($count === 3) {
-        line("Congratulations, {$userName}!");
-    }
+    line("Congratulations, {$userName}!");
 }
 function printProgression(array $progression)
 {

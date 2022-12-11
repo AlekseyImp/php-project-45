@@ -7,12 +7,12 @@ use function BrainGames\Cli\line;
 use function BrainGames\Cli\isPrime;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
+use function BrainGames\Cli\showTask;
 
 function brainPrime()
 {
     $userName = greetings();
-    $count = 0;
-    line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
+    showTask('prime');
     for ($i = 0; $i < 3; $i++) {
         $primeNum = rand(2, 103);
         line("Question: {$primeNum}");
@@ -20,9 +20,6 @@ function brainPrime()
         $correctAnswer = isPrime($primeNum);
         $userAnswer = getSTDIN();
         isCorrectAnswer($userAnswer, $correctAnswer, $userName);
-        $count++;
     }
-    if ($count === 3) {
-        line("Congratulations, {$userName}!");
-    }
+    line("Congratulations, {$userName}!");
 }

@@ -6,22 +6,19 @@ use function BrainGames\Cli\greetings;
 use function BrainGames\Cli\line;
 use function BrainGames\Cli\isCorrectAnswer;
 use function BrainGames\Cli\getSTDIN;
+use function BrainGames\Cli\showTask;
 
 function brainCalc()
 {
     $userName = greetings();
-    $count = 0;
-    line("What is the result of the expression?");
+    showTask('calc');
     for ($i = 0; $i < 3; $i++) {
         $a = rand(1, 20);
         $b = rand(1, 20);
         $operand = rand(1, 3);
         makeQuestion($operand, $a, $b, $userName);
-        $count++;
     }
-    if ($count === 3) {
-        line("Congratulations, {$userName}!");
-    }
+    line("Congratulations, {$userName}!");
 }
 
 function makeQuestion(int $operand, int $a, int $b, string $userName)
