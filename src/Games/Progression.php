@@ -2,16 +2,11 @@
 
 namespace BrainGames\Brain\progression;
 
-use function BrainGames\Cli\greetings;
-use function BrainGames\Cli\line;
-use function BrainGames\Cli\isCorrectAnswer;
-use function BrainGames\Cli\getSTDIN;
-use function BrainGames\Cli\showTask;
+use function BrainGames\Engine\startGame;
 
 function brainProgression()
 {
-    $userName = greetings();
-    showTask('progression');
+    $arrayOfCorrectAnswers = [];
     for ($i = 0; $i < 3; $i++) {
         $size = rand(5, 10);
         $increase  = rand(2, 10);
@@ -22,21 +17,17 @@ function brainProgression()
             $progression[$j] = $progression[$j - 1] + $increase;
         }
         $correctAnswer = $progression[$hidenNum];
-        $correctAnswer = strval($correctAnswer);
         $progression[$hidenNum] = '..';
-        printProgression($progression);
-        $progression = [];
-        line("");
-        line("Your answer: ", false);
-        $userAnswer = getSTDIN();
-        isCorrectAnswer($userAnswer, $correctAnswer, $userName);
+        $progression = makeString($progression);
+        $arrayOfCorrectAnswers[] = [$progression => $correctAnswer];
     }
-    line("Congratulations, {$userName}!");
+    startGame('progression', $arrayOfCorrectAnswers);
 }
-function printProgression(array $progression)
+function makeString(array $progression): string
 {
-    line("Question: ", false);
-    foreach ($progression as $item) {
-        line("{$item} ", false);
+    $stringProgression = '';
+    foreach ($progression as $val) {
+        $stringProgression .= "{$val} ";
     }
+    return $stringProgression;
 }

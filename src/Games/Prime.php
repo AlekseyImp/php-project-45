@@ -2,24 +2,30 @@
 
 namespace BrainGames\Brain\prime;
 
-use function BrainGames\Cli\greetings;
-use function BrainGames\Cli\line;
-use function BrainGames\Cli\isPrime;
-use function BrainGames\Cli\isCorrectAnswer;
-use function BrainGames\Cli\getSTDIN;
-use function BrainGames\Cli\showTask;
+use function BrainGames\Engine\startGame;
 
 function brainPrime()
 {
-    $userName = greetings();
-    showTask('prime');
+    $arrayOfCorrectAnswers = [];
     for ($i = 0; $i < 3; $i++) {
         $primeNum = rand(2, 103);
-        line("Question: {$primeNum}");
-        line("Your answer: ", false);
         $correctAnswer = isPrime($primeNum);
-        $userAnswer = getSTDIN();
-        isCorrectAnswer($userAnswer, $correctAnswer, $userName);
+        $arrayOfCorrectAnswers[] = [$primeNum => $correctAnswer];
     }
-    line("Congratulations, {$userName}!");
+    startGame('prime', $arrayOfCorrectAnswers);
+}
+function isPrime(int $num): string
+{
+    $end = round(sqrt($num));
+    $count = 0;
+    for ($i = 2; $i <= $end; $i++) {
+        if ($num % $i === 0) {
+            $count++;
+        }
+    }
+    if ($count === 0) {
+        return 'yes';
+    } else {
+        return 'no';
+    }
 }

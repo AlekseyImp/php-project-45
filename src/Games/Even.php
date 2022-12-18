@@ -2,27 +2,19 @@
 
 namespace BrainGames\Brain\even;
 
-use function BrainGames\Cli\greetings;
-use function BrainGames\Cli\line;
-use function BrainGames\Cli\isCorrectAnswer;
-use function BrainGames\Cli\getSTDIN;
-use function BrainGames\Cli\showTask;
+use function BrainGames\Engine\startGame;
 
 function brainEven()
 {
-    $userName = greetings();
-    showTask('even');
+    $arrayOfCorrectAnswers = [];
     for ($i = 0; $i < 3; $i++) {
-        $num = rand(1, 50);
-        line("Question: {$num}");
-        line("Your answer: ", false);
+        $num = rand(1, 100);
         $correctAnswer = getCorrectAnswer($num);
-        $userAnswer = getSTDIN();
-        isCorrectAnswer($userAnswer, $correctAnswer, $userName);
+        $arrayOfCorrectAnswers[] = [$num => $correctAnswer];
     }
-    line("Congratulations, {$userName}!");
+    startGame('even', $arrayOfCorrectAnswers);
 }
-function getCorrectAnswer(int $num)
+function getCorrectAnswer(int $num): string
 {
     if ($num % 2 === 0) {
         return 'yes';
