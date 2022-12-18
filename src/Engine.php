@@ -51,7 +51,7 @@ function isCorrectAnswer(string $userAnswer, string $correctAnswer, string $user
 function greetings(): string
 {
     line("Welcome to the Brain Games!");
-    $userName = prompt("May I have your name? ", false, '');
+    $userName = prompt("May I have your name? ", "Anonim", '');
     line("Hello, {$userName}");
     return $userName;
 }
