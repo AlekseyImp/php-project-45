@@ -4,15 +4,16 @@ namespace BrainGames\Brain\even;
 
 use function BrainGames\Engine\startGame;
 
-function brainEven()
+function brainEven(): void
 {
-    $arrayOfCorrectAnswers = [];
+    $questionAndCorrectAnswer = [];
     for ($i = 0; $i < 3; $i++) {
         $num = rand(1, 100);
         $correctAnswer = getCorrectAnswer($num);
-        $arrayOfCorrectAnswers[] = [$num => $correctAnswer];
+        $questionAndCorrectAnswer[] = ['question' => $num, 'correctAnswer' => $correctAnswer];
     }
-    startGame('even', $arrayOfCorrectAnswers);
+    $question = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+    startGame($questionAndCorrectAnswer, $question);
 }
 function getCorrectAnswer(int $num): string
 {
