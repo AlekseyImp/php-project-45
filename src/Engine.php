@@ -5,53 +5,31 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-function startGame(string $game, array $arrayOfCorrectAnswers)
+function startGame(array $questionAndCorrectAnswer, string $question): void
 {
-    $userName = greetings();
-    showTask($game);
-    foreach ($arrayOfCorrectAnswers as $correctAnswer) {
-        foreach ($correctAnswer as $val => $corrAnswer) {
-            line("Question: {$val}");
-            $userAnswer = prompt("Your answer");
-            isCorrectAnswer($userAnswer, $corrAnswer, $userName);
+    line("Welcome to the Brain Games!");
+    $userName = prompt("May I have your name? ", "", '');
+    line("Hello, {$userName}");
+    line($question);
+    foreach ($questionAndCorrectAnswer as $key => $val) {
+        line("Question: {$val['question']}");
+        $userAnswer = prompt("Your answer");
+        if (isCorrectAnswer($userAnswer, $val['correctAnswer'])) {
+            line("Correct!");
+        } else {
+            line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$val['correctAnswer']}'");
+            line("Let's try again, {$userName}!");
+            return ;
         }
     }
     line("Congratulations, {$userName}!");
 }
-function showTask(string $game)
-{
-    switch ($game) {
-        case 'even':
-            line("Answer \"yes\" if the number is even, otherwise answer \"no\".");
-            break;
-        case 'calc':
-            line("What is the result of the expression?");
-            break;
-        case 'gcd':
-            line("Find the greatest common divisor of given numbers.");
-            break;
-        case 'prime':
-            line("Answer \"yes\" if given number is prime. Otherwise answer \"no\".");
-            break;
-        case 'progression':
-            line("What number is missing in the progression?");
-            break;
-    }
-}
-function isCorrectAnswer(string $userAnswer, string $correctAnswer, string $userName)
+
+function isCorrectAnswer(string $userAnswer, string $correctAnswer): bool
 {
     if ($userAnswer == $correctAnswer) {
-        line("Correct!");
+        return true;
     } else {
-        line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'");
-        line("Let's try again, {$userName}!");
-        exit();
+        return false;
     }
-}
-function greetings(): string
-{
-    line("Welcome to the Brain Games!");
-    $userName = prompt("May I have your name? ", "Anonim", '');
-    line("Hello, {$userName}");
-    return $userName;
 }
