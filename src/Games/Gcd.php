@@ -4,16 +4,17 @@ namespace BrainGames\Brain\gcd;
 
 use function BrainGames\Engine\startGame;
 
-function brainGcd()
+function brainGcd(): void
 {
-    $arrayOfCorrectAnswers = [];
+    $questionAndCorrectAnswer = [];
     for ($i = 0; $i < 3; $i++) {
         $a = rand(1, 100);
         $b = rand(1, 50);
         $correctAnswer = gcd($a, $b);
-        $arrayOfCorrectAnswers[] = ["{$a} {$b}" => $correctAnswer];
+        $questionAndCorrectAnswer[] = ['question' => "{$a} {$b}", 'correctAnswer' => $correctAnswer];
     }
-    startGame('gcd', $arrayOfCorrectAnswers);
+    $question = "Find the greatest common divisor of given numbers.";
+    startGame($questionAndCorrectAnswer, $question);
 }
 function gcd(int $a, int $b): int
 {
