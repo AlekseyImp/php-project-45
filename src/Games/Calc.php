@@ -20,14 +20,13 @@ function brainCalc(): void
     startGame($questionAndCorrectAnswer, $question);
 }
 
-function getCorrectAnswer(int $operands, int $a, int $b): int
+function getCorrectAnswer(int $operand, int $a, int $b): int
 {
-    switch ($operands) {
-        case 0:
-            return $a + $b;
-        case 1:
-            return $a - $b;
-        case 2:
-            return $a * $b;
+    if ($operand === 0) {
+        return $a + $b;
+    } elseif ($operand === 1) {
+        return $a - $b;
+    } else {
+        return $a * $b;
     }
 }
