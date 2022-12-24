@@ -4,17 +4,23 @@ namespace BrainGames\Brain\prime;
 
 use function BrainGames\Engine\startGame;
 
-function brainPrime()
+function brainPrime(): void
 {
-    $arrayOfCorrectAnswers = [];
+    $questionAndCorrectAnswer = [];
     for ($i = 0; $i < 3; $i++) {
         $primeNum = rand(2, 103);
-        $correctAnswer = isPrime($primeNum);
-        $arrayOfCorrectAnswers[] = [$primeNum => $correctAnswer];
+        if (isPrime($primeNum)) {
+            $correctAnswer = 'yes';
+        } else {
+            $correctAnswer = 'no';
+        }
+        $questionAndCorrectAnswer[] = ['question' => $primeNum, 'correctAnswer' => $correctAnswer];
     }
-    startGame('prime', $arrayOfCorrectAnswers);
+    $question = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
+    startGame($questionAndCorrectAnswer, $question);
 }
-function isPrime(int $num): string
+
+function isPrime(int $num): bool
 {
     $end = round(sqrt($num));
     $count = 0;
@@ -24,8 +30,8 @@ function isPrime(int $num): string
         }
     }
     if ($count === 0) {
-        return 'yes';
+        return true;
     } else {
-        return 'no';
+        return false;
     }
 }
