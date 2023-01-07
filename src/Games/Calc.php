@@ -4,6 +4,7 @@ namespace BrainGames\Brain\calc;
 
 use function BrainGames\Engine\startGame;
 
+const CALC = "What is the result of the expression?";
 function brainCalc(): void
 {
     $questionAndCorrectAnswer = [];
@@ -16,17 +17,16 @@ function brainCalc(): void
         $expression = "{$a} {$operands[$operand]} {$b}";
         $questionAndCorrectAnswer[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
     }
-    $question = "What is the result of the expression?";
-    startGame($questionAndCorrectAnswer, $question);
+    startGame($questionAndCorrectAnswer, CALC);
 }
 
 function getCorrectAnswer(int $operand, int $a, int $b): int
 {
-    if ($operand === 0) {
-        return $a + $b;
-    } elseif ($operand === 1) {
-        return $a - $b;
-    } else {
-        return $a * $b;
+    switch ($operand) {
+        case 0:
+            return $a + $b;
+        case 1:
+            return $a - $b;
     }
+    return $a * $b;
 }
