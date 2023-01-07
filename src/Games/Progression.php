@@ -4,6 +4,7 @@ namespace BrainGames\Brain\progression;
 
 use function BrainGames\Engine\startGame;
 
+const PROGRESSION = "What number is missing in the progression?";
 function brainProgression(): void
 {
     $questionAndCorrectAnswer = [];
@@ -21,8 +22,7 @@ function brainProgression(): void
         $progression = makeString($progression);
         $questionAndCorrectAnswer[] = ['question' => $progression, 'correctAnswer' => $correctAnswer];
     }
-    $question = "What number is missing in the progression?";
-    startGame($questionAndCorrectAnswer, $question);
+    startGame($questionAndCorrectAnswer, PROGRESSION);
 }
 function makeString(array $progression): string
 {

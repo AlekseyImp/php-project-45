@@ -4,6 +4,7 @@ namespace BrainGames\Brain\even;
 
 use function BrainGames\Engine\startGame;
 
+const EVEN = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
 function brainEven(): void
 {
     $questionAndCorrectAnswer = [];
@@ -12,8 +13,7 @@ function brainEven(): void
         $correctAnswer = getCorrectAnswer($num);
         $questionAndCorrectAnswer[] = ['question' => $num, 'correctAnswer' => $correctAnswer];
     }
-    $question = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-    startGame($questionAndCorrectAnswer, $question);
+    startGame($questionAndCorrectAnswer, EVEN);
 }
 function getCorrectAnswer(int $num): string
 {
