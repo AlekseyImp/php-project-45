@@ -14,3 +14,10 @@
 [![asciicast](https://asciinema.org/a/4rkE3O0drYhCeFLRA9BRxhlbH.svg)](https://asciinema.org/a/4rkE3O0drYhCeFLRA9BRxhlbH)
 
 [![asciicast](https://asciinema.org/a/C676bZ0wPJU3xIsXSRAWu3mbm.svg)](https://asciinema.org/a/C676bZ0wPJU3xIsXSRAWu3mbm)
+
+Requirements:
+PHP version >= 7.4
+wp-cli/php-cli-tools = 0.11.16
+Install:
+git clone https://github.com/AlekseyImp/php-project-45.git
+then write in terminal make install
