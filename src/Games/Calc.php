@@ -15,7 +15,7 @@ function brainCalc(): void
         $operand = rand(0, 2);
         try {
             $correctAnswer = getCorrectAnswer(3, $a, $b);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             echo $e;
         }
         $expression = "{$a} {$operands[$operand]} {$b}";
@@ -33,6 +33,7 @@ function getCorrectAnswer(int $operand, int $a, int $b): int
             return $a - $b;
         case 2:
             return $a * $b;
+        default:
+            throw new \Exception("Undefined operand");
     }
-    return throw new \Exception("Undefined operand");
 }
