@@ -13,6 +13,7 @@ function brainCalc(): void
         $a = rand(1, 20);
         $b = rand(1, 20);
         $operand = rand(0, 2);
+        $correctAnswer = 0;
         try {
             $correctAnswer = getCorrectAnswer($operand, $a, $b);
         } catch (\Exception $e) {
