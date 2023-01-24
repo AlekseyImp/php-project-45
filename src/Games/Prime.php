@@ -7,7 +7,7 @@ use function BrainGames\Engine\startGame;
 const PRIME = "Answer \"yes\" if given number is prime. Otherwise answer \"no\".";
 function brainPrime(): void
 {
-    $questionAndCorrectAnswer = [];
+    $round = [];
     for ($i = 0; $i < 3; $i++) {
         $primeNum = rand(2, 103);
         if (isPrime($primeNum)) {
@@ -15,9 +15,9 @@ function brainPrime(): void
         } else {
             $correctAnswer = 'no';
         }
-        $questionAndCorrectAnswer[] = ['question' => $primeNum, 'correctAnswer' => $correctAnswer];
+        $round[] = ['question' => $primeNum, 'correctAnswer' => $correctAnswer];
     }
-    startGame($questionAndCorrectAnswer, PRIME);
+    startGame($round, PRIME);
 }
 
 function isPrime(int $num): bool

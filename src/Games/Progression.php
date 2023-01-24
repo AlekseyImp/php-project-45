@@ -7,7 +7,7 @@ use function BrainGames\Engine\startGame;
 const PROGRESSION = "What number is missing in the progression?";
 function brainProgression(): void
 {
-    $questionAndCorrectAnswer = [];
+    $round = [];
     for ($i = 0; $i < 3; $i++) {
         $size = rand(5, 10);
         $increase  = rand(2, 10);
@@ -20,9 +20,9 @@ function brainProgression(): void
         $correctAnswer = $progression[$hidenNum];
         $progression[$hidenNum] = '..';
         $progression = makeString($progression);
-        $questionAndCorrectAnswer[] = ['question' => $progression, 'correctAnswer' => $correctAnswer];
+        $round[] = ['question' => $progression, 'correctAnswer' => $correctAnswer];
     }
-    startGame($questionAndCorrectAnswer, PROGRESSION);
+    startGame($round, PROGRESSION);
 }
 function makeString(array $progression): string
 {
