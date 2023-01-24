@@ -14,7 +14,7 @@ function brainCalc(): void
         $b = rand(1, 20);
         $operand = rand(0, 2);
         try {
-            $correctAnswer = getCorrectAnswer(3, $a, $b);
+            $correctAnswer = getCorrectAnswer($operand, $a, $b);
         } catch (\Exception $e) {
             echo $e;
         }
