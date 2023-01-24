@@ -7,17 +7,21 @@ use function BrainGames\Engine\startGame;
 const CALC = "What is the result of the expression?";
 function brainCalc(): void
 {
-    $questionAndCorrectAnswer = [];
+    $round = [];
     $operands = ['+', '-', '*'];
     for ($i = 0; $i < 3; $i++) {
         $a = rand(1, 20);
         $b = rand(1, 20);
         $operand = rand(0, 2);
-        $correctAnswer = getCorrectAnswer($operand, $a, $b);
+        try {
+            $correctAnswer = getCorrectAnswer(3, $a, $b);
+        } catch(\Exception $e) {
+            echo $e;
+        }
         $expression = "{$a} {$operands[$operand]} {$b}";
-        $questionAndCorrectAnswer[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
+        $round[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
     }
-    startGame($questionAndCorrectAnswer, CALC);
+    startGame($round, CALC);
 }
 
 function getCorrectAnswer(int $operand, int $a, int $b): int
@@ -27,6 +31,8 @@ function getCorrectAnswer(int $operand, int $a, int $b): int
             return $a + $b;
         case 1:
             return $a - $b;
+        case 2:
+            return $a * $b;
     }
-    return $a * $b;
+    return throw new \Exception("Undefined operand");
 }
