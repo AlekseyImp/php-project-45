@@ -4,21 +4,19 @@ namespace BrainGames\Brain\calc;
 
 use function BrainGames\Engine\startGame;
 
+use const BrainGames\Engine\NUMBER_OF_ROUNDS;
+
 const CALC = "What is the result of the expression?";
 function brainCalc(): void
 {
     $round = [];
     $operands = ['+', '-', '*'];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $a = rand(1, 20);
         $b = rand(1, 20);
         $operand = rand(0, 2);
         $correctAnswer = 0;
-        try {
-            $correctAnswer = getCorrectAnswer($operand, $a, $b);
-        } catch (\Exception $e) {
-            echo $e;
-        }
+        $correctAnswer = getCorrectAnswer($operand, $a, $b);
         $expression = "{$a} {$operands[$operand]} {$b}";
         $round[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
     }

@@ -4,11 +4,13 @@ namespace BrainGames\Brain\progression;
 
 use function BrainGames\Engine\startGame;
 
+use const BrainGames\Engine\NUMBER_OF_ROUNDS;
+
 const PROGRESSION = "What number is missing in the progression?";
 function brainProgression(): void
 {
     $round = [];
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $size = rand(5, 10);
         $increase  = rand(2, 10);
         $progression = [];
