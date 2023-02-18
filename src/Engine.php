@@ -16,7 +16,7 @@ function startGame(array $round, string $question): void
     foreach ($round as $key => $val) {
         line("Question: {$val['question']}");
         $userAnswer = prompt("Your answer");
-        if ($userAnswer === $val['correctAnswer']) {
+        if ($userAnswer == $val['correctAnswer']) {
             line("Correct!");
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$val['correctAnswer']}'");
