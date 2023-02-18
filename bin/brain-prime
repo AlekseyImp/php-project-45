@@ -8,6 +8,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function BrainGames\Brain\prime\brainPrime;
+use function BrainGames\Brain\prime\playPrime;
 
-brainPrime();
+playPrime();
