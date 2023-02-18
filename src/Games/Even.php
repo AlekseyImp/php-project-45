@@ -23,7 +23,7 @@ function playEven(): void
     startGame($round, EVEN_RULES);
 }
 
-function isEven($num): bool
+function isEven(int $num): bool
 {
     if ($num % 2 === 0) {
         return true;
