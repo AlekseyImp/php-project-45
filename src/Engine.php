@@ -6,6 +6,7 @@ use function cli\line;
 use function cli\prompt;
 
 const NUMBER_OF_ROUNDS = 3;
+
 function startGame(array $round, string $question): void
 {
     line("Welcome to the Brain Games!");
@@ -15,7 +16,7 @@ function startGame(array $round, string $question): void
     foreach ($round as $key => $val) {
         line("Question: {$val['question']}");
         $userAnswer = prompt("Your answer");
-        if (isCorrectAnswer($userAnswer, $val['correctAnswer'])) {
+        if ($userAnswer === $val['correctAnswer']) {
             line("Correct!");
         } else {
             line("'{$userAnswer}' is wrong answer ;(. Correct answer was '{$val['correctAnswer']}'");
@@ -24,13 +25,4 @@ function startGame(array $round, string $question): void
         }
     }
     line("Congratulations, {$userName}!");
-}
-
-function isCorrectAnswer(string $userAnswer, string $correctAnswer): bool
-{
-    if ($userAnswer == $correctAnswer) {
-        return true;
-    } else {
-        return false;
-    }
 }
