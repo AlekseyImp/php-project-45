@@ -6,8 +6,9 @@ use function BrainGames\Engine\startGame;
 
 use const BrainGames\Engine\NUMBER_OF_ROUNDS;
 
-const CALC = "What is the result of the expression?";
-function brainCalc(): void
+const CALC_RULES = "What is the result of the expression?";
+
+function playCalc(): void
 {
     $round = [];
     $operands = ['+', '-', '*'];
@@ -20,7 +21,7 @@ function brainCalc(): void
         $expression = "{$a} {$operands[$operand]} {$b}";
         $round[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
     }
-    startGame($round, CALC);
+    startGame($round, CALC_RULES);
 }
 
 function getCorrectAnswer(int $operand, int $a, int $b): int

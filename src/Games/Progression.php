@@ -6,8 +6,9 @@ use function BrainGames\Engine\startGame;
 
 use const BrainGames\Engine\NUMBER_OF_ROUNDS;
 
-const PROGRESSION = "What number is missing in the progression?";
-function brainProgression(): void
+const PROGRESSION_RULES = "What number is missing in the progression?";
+
+function playProgression(): void
 {
     $round = [];
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
@@ -24,7 +25,7 @@ function brainProgression(): void
         $progression = makeString($progression);
         $round[] = ['question' => $progression, 'correctAnswer' => $correctAnswer];
     }
-    startGame($round, PROGRESSION);
+    startGame($round, PROGRESSION_RULES);
 }
 function makeString(array $progression): string
 {
