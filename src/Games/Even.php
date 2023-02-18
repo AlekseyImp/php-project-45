@@ -6,22 +6,28 @@ use function BrainGames\Engine\startGame;
 
 use const BrainGames\Engine\NUMBER_OF_ROUNDS;
 
-const EVEN_NUMBER_OR_NOT = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
-function brainEven(): void
+const EVEN_RULES = "Answer \"yes\" if the number is even, otherwise answer \"no\".";
+
+function playEven(): void
 {
     $round = [];
     for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
         $num = rand(1, 100);
-        $correctAnswer = getCorrectAnswer($num);
+        if (isEven($num)) {
+            $correctAnswer = 'yes';
+        } else {
+            $correctAnswer = 'no';
+        }
         $round[] = ['question' => $num, 'correctAnswer' => $correctAnswer];
     }
-    startGame($round, EVEN_NUMBER_OR_NOT);
+    startGame($round, EVEN_RULES);
 }
-function getCorrectAnswer(int $num): string
+
+function isEven($num): bool
 {
     if ($num % 2 === 0) {
-        return 'yes';
+        return true;
     } else {
-        return 'no';
+        return false;
     }
 }
