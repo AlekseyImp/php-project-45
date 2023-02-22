@@ -4,20 +4,20 @@ namespace BrainGames\Brain\gcd;
 
 use function BrainGames\Engine\startGame;
 
-use const BrainGames\Engine\NUMBER_OF_ROUNDS;
+use const BrainGames\Engine\ROUNDS_COUNT;
 
-const GCD_RULES = "Find the greatest common divisor of given numbers.";
+const RULES = "Find the greatest common divisor of given numbers.";
 
 function playGcd(): void
 {
-    $round = [];
-    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
+    $rounds = [];
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $a = rand(1, 100);
         $b = rand(1, 50);
         $correctAnswer = gcd($a, $b);
-        $round[] = ['question' => "{$a} {$b}", 'correctAnswer' => $correctAnswer];
+        $rounds[] = ['question' => "{$a} {$b}", 'correctAnswer' => $correctAnswer];
     }
-    startGame($round, GCD_RULES);
+    startGame($rounds, RULES);
 }
 function gcd(int $a, int $b): int
 {
