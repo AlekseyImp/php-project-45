@@ -4,36 +4,35 @@ namespace BrainGames\Brain\calc;
 
 use function BrainGames\Engine\startGame;
 
-use const BrainGames\Engine\NUMBER_OF_ROUNDS;
+use const BrainGames\Engine\ROUNDS_COUNT;
 
-const CALC_RULES = "What is the result of the expression?";
+const RULES = "What is the result of the expression?";
 
 function playCalc(): void
 {
-    $round = [];
+    $rounds = [];
     $operands = ['+', '-', '*'];
-    for ($i = 0; $i < NUMBER_OF_ROUNDS; $i++) {
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         $a = rand(1, 20);
         $b = rand(1, 20);
         $operand = rand(0, 2);
-        $correctAnswer = 0;
-        $correctAnswer = getCorrectAnswer($operand, $a, $b);
+        $correctAnswer = getCorrectAnswer($operands[$operand], $a, $b);
         $expression = "{$a} {$operands[$operand]} {$b}";
-        $round[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
+        $rounds[] = ['question' => $expression, 'correctAnswer' => $correctAnswer];
     }
-    startGame($round, CALC_RULES);
+    startGame($rounds, RULES);
 }
 
-function getCorrectAnswer(int $operand, int $a, int $b): int
+function getCorrectAnswer(string $operand, int $a, int $b): int
 {
     switch ($operand) {
-        case 0:
+        case '+':
             return $a + $b;
-        case 1:
+        case '-':
             return $a - $b;
-        case 2:
+        case '*':
             return $a * $b;
         default:
-            throw new \Exception("Undefined operand");
+            throw new \Exception("Undefined operand '{$operand}'");
     }
 }
